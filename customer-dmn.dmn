@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0p8l1o4" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="3cd8340" camunda:diagramRelationId="3261b4f8-1237-43a7-8d43-6efb3ab953c5" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="Decision_1eh7a9k" name="check customer details">
+    <decisionTable id="DecisionTable_1r7ghu2" hitPolicy="ANY">
+      <input id="InputClause_1ve41lb" biodi:width="191">
+        <inputExpression id="LiteralExpression_066su12" typeRef="string" />
+      </input>
+      <input id="InputClause_14y8hhi">
+        <inputExpression id="LiteralExpression_1vpgg2y" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1m2kg7w" typeRef="string" />
+      <rule id="DecisionRule_161anh4">
+        <inputEntry id="UnaryTests_15k77fi">
+          <text>"salary&lt;500000"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dq6dvy">
+          <text>"expenses&gt;10000"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wk1cw7">
+          <text>Decline</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1tmj45i" name="car details">
+    <informationRequirement id="InformationRequirement_1tvi95x">
+      <requiredDecision href="#Decision_1eh7a9k" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1tvps86">
+      <requiredInput href="#InputData_0tsnknr" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0yoppvo">
+      <input id="InputClause_16de0h0">
+        <inputExpression id="LiteralExpression_1rbr92k" typeRef="string" />
+      </input>
+      <output id="OutputClause_0kxsr41" typeRef="string" />
+      <rule id="DecisionRule_0tcnzvm">
+        <inputEntry id="UnaryTests_0w5uiqc">
+          <text>"mileage=100000"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cb9i6f">
+          <text>17000</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0tsnknr" name="mileage" />
+  <knowledgeSource id="KnowledgeSource_0cguv6w" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1xfwufq" dmnElementRef="Decision_1eh7a9k">
+        <dc:Bounds height="80" width="180" x="370" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0cr8lp9" dmnElementRef="Decision_1tmj45i">
+        <dc:Bounds height="80" width="180" x="370" y="300" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1juxc0u" dmnElementRef="InformationRequirement_1tvi95x">
+        <di:waypoint x="460" y="160" />
+        <di:waypoint x="460" y="280" />
+        <di:waypoint x="460" y="300" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_03gzjbj" dmnElementRef="InputData_0tsnknr">
+        <dc:Bounds height="45" width="125" x="157" y="317" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0sl48u9" dmnElementRef="InformationRequirement_1tvps86">
+        <di:waypoint x="282" y="340" />
+        <di:waypoint x="350" y="340" />
+        <di:waypoint x="370" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_15afts0" dmnElementRef="KnowledgeSource_0cguv6w">
+        <dc:Bounds height="63" width="100" x="150" y="159" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

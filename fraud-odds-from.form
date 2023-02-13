@@ -1,0 +1,20 @@
+{
+  "components": [
+    {
+      "label": "fraudOdds",
+      "type": "number",
+      "id": "Field_0x9jhce",
+      "key": "fraudOdds",
+      "description": "fraudOdds"
+    }
+  ],
+  "schemaVersion": 6,
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "0789e3e"
+  },
+  "type": "default",
+  "id": "fraudOdds",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.1.0"
+}

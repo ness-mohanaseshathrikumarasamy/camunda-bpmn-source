@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1bmrz9d" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="3cd8340" camunda:diagramRelationId="244c1f9c-3da3-418c-93f9-12b712be0bc8" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="fraudOdds" name="fraud odds decission">
+    <decisionTable id="DecisionTable_1d88xpy">
+      <input id="InputClause_1shbu3b" label="fraudOdds" biodi:width="192">
+        <inputExpression id="LiteralExpression_0nfz29j" typeRef="number">
+          <text>fraudOdds</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1inijwu" name="isFarud" typeRef="boolean" />
+      <rule id="DecisionRule_1rtl55l">
+        <description>delegate to manual workflow</description>
+        <inputEntry id="UnaryTests_1h7xxgm">
+          <text>&gt; 1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gbhobl">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kuood4">
+        <description>continue to next step</description>
+        <inputEntry id="UnaryTests_11ztne8">
+          <text>0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ul4gk3">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1902tlr" dmnElementRef="fraudOdds">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

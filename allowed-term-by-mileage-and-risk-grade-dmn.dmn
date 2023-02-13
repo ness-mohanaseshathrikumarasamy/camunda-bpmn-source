@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_09hljms" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="52ef6d2" camunda:diagramRelationId="b1c5c8b8-e946-426d-ae43-e4c1a223211b" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <decision id="decision_term_by_mileage_and_risk_grade" name="Term by mileage and risk grade">
+    <decisionTable id="DecisionTable_13a1q4s">
+      <input id="Input_1" label="Mileage" biodi:width="193">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>mileage</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1imbw32" label="Risk Grade" biodi:width="192">
+        <inputExpression id="LiteralExpression_1vrlm8a" typeRef="string">
+          <text>risk_grade</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_16spy08">
+          <text>"S","P","A","B","C"</text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="Loan Term" name="loan_term" typeRef="number" />
+      <rule id="DecisionRule_1icblq4">
+        <inputEntry id="UnaryTests_0bn4xfd">
+          <text>&lt;50000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gfw9p3">
+          <text>"S","P"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gljicr">
+          <text>75</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02mtddp">
+        <inputEntry id="UnaryTests_0te19bo">
+          <text>&lt;50000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bisai9">
+          <text>"A","B","C"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g5r8bz">
+          <text>72</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hestds">
+        <inputEntry id="UnaryTests_09sk2dy">
+          <text>[50000..75000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03biypo">
+          <text>"S","P","A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g1d411">
+          <text>72</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rbr6h4">
+        <inputEntry id="UnaryTests_1rvvrpi">
+          <text>[50000..75000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zoa9dk">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vctxey">
+          <text>66</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0posfz1">
+        <inputEntry id="UnaryTests_0fs6n1q">
+          <text>[50000..75000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aj1wsn">
+          <text>"C"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kodffw">
+          <text>60</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03gakla">
+        <inputEntry id="UnaryTests_0n0rvec">
+          <text>[75001..100000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hyc8ho">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ur9zx5">
+          <text>60</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hiyend">
+        <inputEntry id="UnaryTests_05yty03">
+          <text>[100001..130000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_143hrip">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ip6b8e">
+          <text>54</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qdkt8z">
+        <inputEntry id="UnaryTests_052fcqp">
+          <text>[130001..175000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lgijtp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03kx6zh">
+          <text>48</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_08bp5fp">
+        <inputEntry id="UnaryTests_1d6in13">
+          <text>[175001..200000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02gbejm">
+          <text>"S","P","A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vksxx2">
+          <text>48</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nrf5sz">
+        <inputEntry id="UnaryTests_10v1pn7">
+          <text>&gt;200000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y8ioud">
+          <text>"S","P"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k3fh4c">
+          <text>36</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="decision_term_by_mileage_and_risk_grade">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
